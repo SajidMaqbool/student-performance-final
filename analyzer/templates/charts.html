@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudenTrak Analytics Engine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc !important; color: #1e293b !important; }
+        .insights-card { background-color: #ffffff !important; border: 1px solid #e2e8f0 !important; border-radius: 12px !important; }
+        .chart-frame { background-color: #ffffff !important; border: 1px solid #e2e8f0 !important; border-radius: 12px !important; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 py-3 shadow-sm sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center fw-bold text-white fs-5" href="#">
+                <span class="me-2">📊</span> StudenTrak <span class="badge bg-primary ms-2 fs-7 font-monospace">PRO</span>
+            </a>
+            <div class="ms-auto d-flex align-items-center">
+                <div class="bg-secondary bg-opacity-25 rounded px-3 py-1 me-3 border border-secondary border-opacity-20">
+                    <span class="text-white-50 small">User: </span>
+                    <span class="text-white fw-semibold small">{{ username }}</span>
+                </div>
+                <a href="/dashboard" class="btn btn-sm btn-outline-light fw-medium me-2 px-3">Explorer</a>
+                <a href="/charts" class="btn btn-sm btn-light fw-medium me-2 px-3">Visual Analytics</a>
+                <a href="/logout" class="btn btn-sm btn-danger fw-medium px-3">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container p-4 max-width-lg">
+        <h4 class="mb-4 fw-bold text-dark d-flex align-items-center">
+            <span class="badge bg-primary me-2">⚡</span> Advanced Statistical Visualizations
+        </h4>
+        
+        <div class="card insights-card p-4 shadow-sm mb-4 border-start border-primary border-5">
+            <h6 class="fw-bold text-uppercase text-secondary tracking-wider small mb-3">💡 Automated System Insight Report Compiler</h6>
+            <p class="m-0 text-dark small lh-base" style="white-space: pre-line; font-weight: 500;">{{ insights }}</p>
+        </div>
+
+        <div class="text-center chart-frame p-4 shadow-sm mb-5">
+            <img src="data:image/png;base64,{{ plot_url }}" class="img-fluid rounded" alt="System Graph Output Matrix">
+        </div>
+    </div>
+</body>
+</html>
