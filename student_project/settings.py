@@ -1,6 +1,5 @@
 import os
 from pathlib import Path
-import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,7 +28,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # Optimized static asset management injection
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -61,7 +59,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'student_project.wsgi.application'
 
 
-# Database configuration framework mapping to local SQLite binary file
+# Database configuration framework mapping to Neon PostgreSQL
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -104,15 +102,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Storage systems optimized with WhiteNoise compilation pipelines
-STORAGES = {
-    "staticfiles": {
-        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
-    },
-}
-
 # Default primary key field layout definition
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
