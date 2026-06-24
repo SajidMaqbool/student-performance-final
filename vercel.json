@@ -3,15 +3,10 @@
     "builds": [
         {
             "src": "student_project/wsgi.py",
-            "use": "@vercel/python",
-            "config": { "maxDuration": 60 }
+            "use": "@vercel/python"
         }
     ],
     "routes": [
-        {
-            "src": "/static/(.*)",
-            "dest": "staticfiles/$1"
-        },
         {
             "src": "/(.*)",
             "dest": "student_project/wsgi.py"
