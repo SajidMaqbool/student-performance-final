@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -63,11 +64,17 @@ WSGI_APPLICATION = 'student_project.wsgi.application'
 # Database configuration framework mapping to local SQLite binary file
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'neondb',
+        'USER': 'neondb_owner',
+        'PASSWORD': 'npg_uZsLmVed03DC',
+        'HOST': 'ep-nameless-lake-athmgjpx-pooler.c-9.us-east-1.aws.neon.tech',
+        'PORT': '5432',
+        'OPTIONS': {
+            'sslmode': 'require',
+        }
     }
 }
-
 
 # Password validation architecture setup
 AUTH_PASSWORD_VALIDATORS = [
